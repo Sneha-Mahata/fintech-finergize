@@ -1,11 +1,9 @@
 "use client";
-
-//import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Wallet, Users, BookOpen, TrendingUp, Building, Phone, Clock, CreditCard, AlertCircle, Sparkles } from "lucide-react";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion, useScroll, useTransform, useMotionValueEvent, useMotionValue, useSpring, MotionValue } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import dynamic from 'next/dynamic';
 
 // Dynamically import the 3D logo component with no SSR
@@ -63,11 +61,11 @@ interface AnimatedCounterProps {
 interface GlowingButtonProps {
   children: React.ReactNode;
   className?: string;
-  [x: string]: any; // For additional props
+   // For additional props
 }
 
 interface FeatureItem {
-  icon: JSX.Element;
+  
   title: string;
   description: string;
   gradient: string;
@@ -75,13 +73,13 @@ interface FeatureItem {
 }
 
 interface BenefitItem {
-  icon: JSX.Element;
+  
   title: string;
   description: string;
 }
 
 interface StatItem {
-  icon: JSX.Element;
+  
   title: string;
   value: string;
   countValue: number;

@@ -132,12 +132,12 @@ export default function Navbar() {
               </DropdownMenu>
             ) : (
               <>
-                <Link href="/login">
+                <Link href="/banking/login">
                   <Button variant="outline" className="border-blue-500/50 text-blue-400 hover:bg-blue-500/10">
                     Login
                   </Button>
                 </Link>
-                <Link href="/register">
+                <Link href="/banking/register">
                   <Button className="bg-gradient-to-r from-blue-500 to-purple-500 hover:opacity-90">
                     Register
                   </Button>

@@ -1,22 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-//import "@/styles/chatbot-animations.css";
+import "@/styles/chatbot-animations.css";
 import Navbar from "@/components/Navbar";
-import { Toaster } from "@/components/ui/toaster"; // Changed from toast to toaster
+import { Toaster } from "@/components/ui/toaster";
+import { AuthProvider } from "@/contexts/AuthContext";
+import { UserProvider } from "@/contexts/UserContext"; // Add this import
+import NextAuthProvider from "@/components/providers/session-provider";
+import ChatbotProvider from "@/components/providers/ChatbotProvider";
 
-// Load fonts
 const inter = Inter({ subsets: ["latin"] });
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
-// Metadata for the app
 export const metadata: Metadata = {
   title: "Finergise - Digital Banking for Rural Communities",
   description: "Access banking services right from your community with secure and easy-to-use digital banking solutions.",
@@ -24,15 +18,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} ${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Toaster />
+      <body className={inter.className}>
+        <NextAuthProvider>
+          <AuthProvider>
+            <UserProvider> {/* Add the UserProvider here */}
+              <Navbar />
+              <ChatbotProvider>
+                {children}
+              </ChatbotProvider>
+              <Toaster />
+            </UserProvider>
+          </AuthProvider>
+        </NextAuthProvider>
       </body>
     </html>
   );

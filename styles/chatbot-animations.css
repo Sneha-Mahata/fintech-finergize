@@ -1,0 +1,108 @@
+/* Typing animation */
+.typing-dot:nth-child(1) {
+    animation: bounce 1.2s infinite;
+    animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+    animation: bounce 1.2s infinite;
+    animation-delay: 0.3s;
+}
+
+.typing-dot:nth-child(3) {
+    animation: bounce 1.2s infinite;
+    animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+    0%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Recording pulse animation */
+.recording-pulse {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+    }
+}
+
+/* Message animations */
+.message-fade-in-right {
+    animation: fadeInRight 0.3s ease forwards;
+}
+
+.message-fade-in-left {
+    animation: fadeInLeft 0.3s ease forwards;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Glowing gradient animation */
+.animate-gradient-xy {
+    background-size: 200% 200%;
+    animation: gradient-xy 10s ease infinite;
+}
+
+@keyframes gradient-xy {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+/* Scrollbar styling */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(147, 51, 234, 0.5);
+    border-radius: 10px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(147, 51, 234, 0.8);
+}
